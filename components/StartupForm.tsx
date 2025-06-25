@@ -1,7 +1,7 @@
 "use client"
 
 import { Input } from "./ui/input";
-import { useState, useActionState } from "react";
+import { useState, useActionState, useEffect } from "react";
 import { Textarea } from "./ui/textarea";
 import MDEditor from "@uiw/react-md-editor";
 import { Button } from "./ui/button";
@@ -15,18 +15,24 @@ import { StartupCardType } from "./StartupCard";
 
 const StartupForm = ({ startUpToEdit } : { startUpToEdit ?: StartupCardType }) => {
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [title, setTitle] = useState(startUpToEdit?.title || "");
+    const [description, setDescription] = useState(startUpToEdit?.description || "");
+    const [category, setCategory] = useState(startUpToEdit?.category || "");
+    const [link, setLink] = useState(startUpToEdit?.image || "");
     const [pitch, setPitch] = useState(startUpToEdit?.pitch || "");
     const { toast } = useToast();
     const router = useRouter();
 
     const handleFormSubmit = async (prevState: any, formData: FormData) => {
+        
         try{
+    
             const formValues = {
-                title: formData.get("title") as string,
-                description: formData.get("description") as string,
-                category: formData.get("category") as string,
-                link: formData.get("link") as string,
-                pitch: pitch
+                title,
+                description,
+                category,
+                link,
+                pitch
             }
 
             await formSchema.parseAsync(formValues);
@@ -83,7 +89,6 @@ const StartupForm = ({ startUpToEdit } : { startUpToEdit ?: StartupCardType }) =
         status: "INITIAL"
     });
 
-
     return (
         <form action={formAction} className="startup-form">
             <div>
@@ -96,7 +101,8 @@ const StartupForm = ({ startUpToEdit } : { startUpToEdit ?: StartupCardType }) =
                     className="startup-form_input"
                     required
                     placeholder="Startup Title"
-                    defaultValue={startUpToEdit?.title || ""}
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                 />
                 {errors.title && <p className="startup-form_error">{errors.title}</p>}
             </div>
@@ -109,7 +115,8 @@ const StartupForm = ({ startUpToEdit } : { startUpToEdit ?: StartupCardType }) =
                     name="description"
                     className="startup-form_textarea"
                     required
-                    defaultValue={startUpToEdit?.description || ""}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     placeholder="Startup Description"
                 />
                 {errors.description && <p className="startup-form_error">{errors.description}</p>}
@@ -123,7 +130,8 @@ const StartupForm = ({ startUpToEdit } : { startUpToEdit ?: StartupCardType }) =
                     name="category"
                     className="startup-form_input"
                     required
-                    defaultValue={startUpToEdit?.category || ""}
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
                     placeholder="Startup Category (Tech, Health, etc.)"
                 />
                 {errors.category && <p className="startup-form_error">{errors.category}</p>}
@@ -137,7 +145,8 @@ const StartupForm = ({ startUpToEdit } : { startUpToEdit ?: StartupCardType }) =
                     name="link"
                     className="startup-form_input"
                     required
-                    defaultValue={startUpToEdit?.image || ""}
+                    value={link}
+                    onChange={(e) => setLink(e.target.value)}
                     placeholder="Startup Image URL"
                 />
                 {errors.link && <p className="startup-form_error">{errors.link}</p>}

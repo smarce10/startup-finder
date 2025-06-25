@@ -58,7 +58,7 @@ export const createPitch = async(
 
         return parseServerActionResponse({
             error: JSON.stringify(error),
-            status: "ERROR"
+            status: "ERROR",
         })
     }
 }
