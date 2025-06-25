@@ -10,11 +10,12 @@ import { formSchema } from "@/lib/validation";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
-import { createPitch } from "@/lib/action";
+import { createPitch, updateStartup } from "@/lib/action";
+import { StartupCardType } from "./StartupCard";
 
-const StartupForm = () => {
+const StartupForm = ({ startUpToEdit } : { startUpToEdit ?: StartupCardType }) => {
     const [errors, setErrors] = useState<Record<string, string>>({});
-    const [pitch, setPitch] = useState("");
+    const [pitch, setPitch] = useState(startUpToEdit?.pitch || "");
     const { toast } = useToast();
     const router = useRouter();
 
@@ -29,14 +30,16 @@ const StartupForm = () => {
             }
 
             await formSchema.parseAsync(formValues);
-            console.log(formValues);
 
-            const result = await createPitch(prevState, formData, pitch);
+            const result = startUpToEdit ? 
+                await updateStartup(startUpToEdit._id, formData, pitch) 
+                :
+                await createPitch(prevState, formData, pitch);
 
             if(result.status == 'SUCCESS'){
                 toast({
                     title: "Success",
-                    description: "Your startup pitch has been submitted successfully!",                    
+                    description: `Your startup pitch has been ${startUpToEdit ? "edited" : "submited"} successfully!`,                    
                 });
 
                 router.push(`/startup/${result._id}`);
@@ -93,6 +96,7 @@ const StartupForm = () => {
                     className="startup-form_input"
                     required
                     placeholder="Startup Title"
+                    defaultValue={startUpToEdit?.title || ""}
                 />
                 {errors.title && <p className="startup-form_error">{errors.title}</p>}
             </div>
@@ -105,6 +109,7 @@ const StartupForm = () => {
                     name="description"
                     className="startup-form_textarea"
                     required
+                    defaultValue={startUpToEdit?.description || ""}
                     placeholder="Startup Description"
                 />
                 {errors.description && <p className="startup-form_error">{errors.description}</p>}
@@ -118,6 +123,7 @@ const StartupForm = () => {
                     name="category"
                     className="startup-form_input"
                     required
+                    defaultValue={startUpToEdit?.category || ""}
                     placeholder="Startup Category (Tech, Health, etc.)"
                 />
                 {errors.category && <p className="startup-form_error">{errors.category}</p>}
@@ -131,6 +137,7 @@ const StartupForm = () => {
                     name="link"
                     className="startup-form_input"
                     required
+                    defaultValue={startUpToEdit?.image || ""}
                     placeholder="Startup Image URL"
                 />
                 {errors.link && <p className="startup-form_error">{errors.link}</p>}

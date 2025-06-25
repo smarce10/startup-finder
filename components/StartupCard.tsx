@@ -5,13 +5,13 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { Author, Startup } from "@/sanity/types";
 import { Skeleton } from "./ui/skeleton";
+import ActionButtons from "./ActionButtons";
 
 export type StartupCardType = Omit<Startup, "author"> & { author?: Author };
 
-
-const StartupCard = ({ post } : { post: StartupCardType }) => {
+const StartupCard = ({ post, showActions = false } : { post: StartupCardType, showActions: boolean }) => {
+    
     const { _createdAt, views, author, _id, description, image, category, title } = post;
-
 
   return (
     <li className="startup-card group">
@@ -60,6 +60,11 @@ const StartupCard = ({ post } : { post: StartupCardType }) => {
                     Details
                 </Link>
             </Button>
+            {
+                showActions && (
+                    <ActionButtons id={_id}/>
+                )
+            }
         </div>
     </li>
   );
