@@ -157,6 +157,25 @@
         @apply rounded-full bg-black-200 font-medium text-[16px] text-white px-5 py-3 !important;
     }
 
+    .startup-card_btn-edit {
+        @apply bg-secondary border-[2.5px] border-black rounded-full p-2 transition-all duration-200;
+    }
+
+    .startup-card_btn-edit:hover {
+        @apply shadow-100 bg-yellow-300 scale-105;
+    }
+
+    .startup-card_btn-delete {
+        @apply bg-red-600 border-[2.5px] border-black rounded-full p-2 transition-all duration-200;
+    }
+    .startup-card_btn-delete:hover {
+        @apply shadow-100 bg-red-700 scale-105;
+    }
+
+    .startup-card_btn:hover {
+        @apply transition-all duration-200 bg-primary text-white shadow-300 scale-105;
+    }
+
     .startup-card_skeleton {
         @apply w-full h-96 rounded-[22px] bg-zinc-400;
     }
