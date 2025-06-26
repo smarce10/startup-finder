@@ -14,7 +14,7 @@ const StartupCard = ({ post, showActions = false } : { post: StartupCardType, sh
     const { _createdAt, views, author, _id, description, image, category, title } = post;
 
   return (
-    <li className="startup-card group">
+    <li className="animate-in fade-in duration-300 startup-card group">
         <div className="flex-between">
             <p className="startup_card_date">
                 {formatDate(_createdAt)}

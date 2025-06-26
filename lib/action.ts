@@ -109,3 +109,20 @@ export const updateStartup = async(id: string, form: FormData, pitch: string) =>
         })
     }
 }
+
+export const deleteStartup = async(id: string) => {
+    try {
+        const result = await writeClient.delete(id);
+        return parseServerActionResponse({
+            ...result,
+            error: "",
+            status: "SUCCESS"
+        })
+    } catch (error) {
+        console.log(error);
+        return parseServerActionResponse({
+            error: JSON.stringify(error),
+            status: "ERROR"
+        })
+    }
+}
