@@ -37,13 +37,13 @@ const ActionButtons = ({ id } : { id: string }) => {
     return (
         <div className="flex gap-1">
             
-            <Button variant="secondary">
+            <Button variant="secondary" className="startup-card_btn-edit" disabled={isPending}>
                 <Link href={`/startup/${id}/edit`}>
                     <Pencil/>
                 </Link>
             </Button>
             <form action={formAction}>
-                <Button variant="destructive" className="bg-red-600" type="submit" disabled={isPending}>
+                <Button variant="destructive" className="startup-card_btn-delete" type="submit" disabled={isPending}>
                     <Trash2/>
                 </Button>
             </form>
