@@ -9,8 +9,8 @@ const SearchFormReset = () => {
     }
     
     return (
-        <button type="reset" onClick={reset}>
-            <Link href={"/"} className="search-btn text-white">
+        <button type="reset" onClick={reset} className="text-white">
+            <Link href={"/"} >
                 <X className="size-5" />
             </Link>
         </button>

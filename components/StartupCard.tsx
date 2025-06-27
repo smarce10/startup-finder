@@ -20,7 +20,7 @@ const StartupCard = ({ post, showActions = false } : { post: StartupCardType, sh
                 {formatDate(_createdAt)}
             </p>
             <div className="flex gap-1.5">
-                <EyeIcon className="size-6 text-primary" />
+                <EyeIcon className="size-6 text-white" />
                 <span className="text-16-medium">
                     {views}
                 </span>
@@ -47,15 +47,15 @@ const StartupCard = ({ post, showActions = false } : { post: StartupCardType, sh
             <p className="startup-card_desc">
                 {description}
             </p>
-            <Image src={image || "https://placehold.co/400x400"} alt="placeholder" className="startup-card_image" width={400} height={400}/>
+            <Image src={image || "https://placehold.co/400x400"} alt="placeholder" className="startup-card_img" width={400} height={400}/>
         </Link>
         <div className="flex-between gap-3 mt-5">
             <Link href={`/?query=${category?.toLowerCase()}`}>
-                <p className="text-16-medium">
+                <p className="startup-card_category">
                     {category}
                 </p>
             </Link>
-            <Button className="startup-card_btn" asChild>
+            <Button className="startup-card_btn py-5" asChild>
                 <Link href={`/startup/${_id}`}>
                     Details
                 </Link>

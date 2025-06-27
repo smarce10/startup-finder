@@ -20,16 +20,44 @@ export default async function Home({ searchParams }:
   return (
     <>
       <section className="pink_container">
-          <h1 className="heading">Pitch your startup, <br />Connect With Entrepreneurs</h1>
+          <h1 className="heading">
+            <span className="heading-main">Pitch your</span> <span className="heading-highlight">startup</span>
+          </h1>
           <p className="sub-heading !max-w-3xl">
-            Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions.
+            Connect with entrepreneurs, showcase groundbreaking ideas, and transform concepts into reality through our exclusive startup ecosystem.
           </p>
-          <SearchForm query={query}/>
+          <div className="grid grid-cols-1 text-white gap-3 my-5 md:grid-cols-3">
+            <div className="heading-card">
+              <h2 className="text-4xl font-extrabold">
+                500+
+              </h2>
+              <p>Active Startups</p>
+            </div>
+            <div className="heading-card">
+              <h2 className="text-4xl font-extrabold">
+                10K+
+              </h2>
+              <p>Entrepreneurs</p>
+            </div>
+            <div className="heading-card">
+              <h2 className="text-4xl font-extrabold">
+                $2M+
+              </h2>
+              <p>Funding Raised</p>
+            </div>
+          </div>
       </section>
       <section className="section_container">
-        <p className="text-30-semibold">
-          {query ? `Results for "${query}"` : "All Startups"}
-        </p>
+
+        <div className="flex flex-col items-center gap-5">
+          <h2 className="heading-main text-4xl md:text-5xl font-bold pb-1">Startup Directory</h2>
+          <SearchForm query={query}/>
+          <p className="text-white/60 text-1xl md:text-xl">
+            {query ? `Results for "${query}"` : "All Startups"}
+          </p>
+        </div>
+        
+        
         <ul className="mt-7 card_grid">
           {
             posts?.length > 0 ? posts.map((post: StartupCardType) => (
