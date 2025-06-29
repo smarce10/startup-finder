@@ -19,7 +19,7 @@ export default async function Home({ searchParams }:
 
   return (
     <>
-      <section className="pink_container">
+      <section className="jumbo">
           <h1 className="heading">
             <span className="heading-main">Pitch your</span> <span className="heading-highlight">startup</span>
           </h1>
