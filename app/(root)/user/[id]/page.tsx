@@ -23,9 +23,6 @@ const Page = async({ params } : { params: Promise<{id: string}>}) => {
                 <div className="profile_card animate-in slide-in-from-left duration-300">
                     <h2 className="profile_card_name">
                         {user.name}
-                        {/* <h3 className="text-24-black uppercase text-center line-clamp-1">
-                            {user.name}
-                        </h3> */}
                     </h2>
                     <Image
                         src={user.image}

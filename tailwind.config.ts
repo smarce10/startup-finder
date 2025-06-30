@@ -17,10 +17,22 @@ const config: Config = {
             },
             colors: {
                 primary: {
-                    "100": "#FFE8F0",
-                    DEFAULT: "#EE2B69",
+                    light: "#f472b6",
+                    DEFAULT: "#a21caf",
+                    dark: "#6d28d9",
                 },
                 secondary: "#FBE843",
+                accent: {
+                    yellow: "#FBE843",
+                    pink: "#ee2b69",
+                    fuchsia: "#C026D3",
+                    indigo: "#6366f1",
+                },
+                surface: {
+                    DEFAULT: "#232042",
+                    light: "312e81",
+                    dark: "#1e1b4b",
+                },
                 black: {
                     "100": "#333333",
                     "200": "#141413",
@@ -31,6 +43,7 @@ const config: Config = {
                     "100": "#F7F7F7",
                     DEFAULT: "#FFFFFF",
                 },
+                transparent: "transparent",
             },
             fontFamily: {
                 "work-sans": ["var(--font-work-sans)"],
@@ -41,9 +54,9 @@ const config: Config = {
                 sm: "calc(var(--radius) - 4px)",
             },
             boxShadow: {
-                100: "2px 2px 0px 0px rgb(0, 0, 0)",
-                200: "2px 2px 0px 2px rgb(0, 0, 0)",
-                300: "2px 2px 0px 1px rgb(238, 43, 105)",
+                glass: "0 8px 40px 0 #6d28d955",
+                card: "0 4px 32px 0 #6d28d933",
+                btn: "0 2px 8px 0 #23204233",
             },
         },
     },

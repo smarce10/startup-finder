@@ -3,6 +3,8 @@ import StartupCard, { StartupCardType } from "../../components/StartupCard"
 import { getAllPosts } from "@/sanity/lib/queries"
 import { sanityFetch, SanityLive } from "@/sanity/lib/live"
 import { auth } from "@/auth"
+import ParticlesHome from "@/components/particles/ParticlesHome"
+import SectionDivider from "@/components/SectionDivider"
 
 
 // no tiene sentido que los searchParams sean un promise
@@ -19,7 +21,8 @@ export default async function Home({ searchParams }:
 
   return (
     <>
-      <section className="jumbo">
+      <section className="jumbo relative">
+          <ParticlesHome />
           <h1 className="heading">
             <span className="heading-main">Pitch your</span> <span className="heading-highlight">startup</span>
           </h1>
@@ -46,10 +49,12 @@ export default async function Home({ searchParams }:
               <p>Funding Raised</p>
             </div>
           </div>
+          <SectionDivider/>
       </section>
-      <section className="section_container">
+      
 
-        <div className="flex flex-col items-center gap-5">
+      <section className="section_container bg-red">
+        <div className="flex flex-col items-center gap-5 ">
           <h2 className="heading-main text-4xl md:text-5xl font-bold pb-1">Startup Directory</h2>
           <SearchForm query={query}/>
           <p className="text-white/60 text-1xl md:text-xl">
@@ -58,7 +63,7 @@ export default async function Home({ searchParams }:
         </div>
         
         
-        <ul className="mt-7 card_grid">
+        <ul className="mt-7 card_grid max-w-7xl mx-auto ">
           {
             posts?.length > 0 ? posts.map((post: StartupCardType) => (
               <StartupCard key={post?._id} post={post} />
