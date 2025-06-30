@@ -156,6 +156,7 @@ const StartupForm = ({ startUpToEdit } : { startUpToEdit ?: StartupCardType }) =
                     Pitch
                 </label>
                 <MDEditor
+                    className="rounded-xl border border-white/20 bg-[#232042] !important"
                     value={pitch}
                     onChange={(value) => setPitch(value as string)}
                     id="pitch"
