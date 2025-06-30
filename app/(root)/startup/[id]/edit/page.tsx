@@ -1,3 +1,4 @@
+import ParticlesEditStartup from "@/components/particles/ParticlesEditStartup";
 import StartupForm from "@/components/StartupForm";
 import { client } from "@/sanity/lib/client";
 import { getPostById } from "@/sanity/lib/queries";
@@ -10,7 +11,8 @@ const Page = async({ params } : { params: { id : string }}) => {
 
     return (
         <>
-            <section className="pink_container !min-h-[230px]">
+            <section className="jumbo-form !min-h-[230px]">
+                <ParticlesEditStartup />
                 <h1 className="heading">
                     Edit Your Startup
                 </h1>
