@@ -23,19 +23,19 @@ const Navbar = async() => {
                             <span className='max-sm:hidden navbar-btn'>
                                 Create
                             </span>
-                            <BadgePlus className='size-6 sm:hidden text-red-500' />
+                            <BadgePlus className='size-6 sm:hidden text-[#FFB429]' />
                         </Link>
                         <form action={
                             async () => {
                                 'use server'
                                 await signOut({redirectTo: '/'})
                             }
-                        }>
+                        } className='flex items-center'>
                             <button type='submit'>
                                 <span className="max-sm:hidden navbar-btn">
                                     Logout
                                 </span>
-                                <LogOut className='size-6 sm:hidden text-red-500' />
+                                <LogOut className='size-6 sm:hidden text-[#FFB429]' />
                             </button>
                         </form>
                         <Link href={`/user/${session?.id}`}>

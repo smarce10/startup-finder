@@ -1,5 +1,3 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"); */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -54,7 +52,7 @@ body {
     }
 
     .text-20-medium {
-        @apply font-medium text-[20px] text-black;
+        @apply font-medium text-[20px] text-white;
     }
 
     .text-16-medium {
@@ -70,7 +68,7 @@ body {
     }
 
     .tag {
-        @apply bg-secondary px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative tag-tri;
+        @apply inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#FFB429] text-[#232042] font-bold text-sm shadow-md border-2 border-yellow-300/60 uppercase tracking-wide;
     }
 
     .heading {
@@ -304,7 +302,7 @@ body {
 
     /* view */
     .view-container {
-        @apply flex justify-end items-center mt-5 fixed bottom-3 right-3;
+        @apply flex justify-end items-center mt-5 fixed bottom-3 right-3 bg-primary-dark/50 rounded-lg;
     }
 
     .view-text {
@@ -312,11 +310,11 @@ body {
     }
 
     .category-tag {
-        @apply font-medium text-[16px] px-4 py-2 rounded-full;
+        @apply font-medium text-[16px] px-4 py-2 rounded-full text-white;
     }
 
-    .tag-tri {
-        @apply before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
+    .markdown-article{
+        @apply prose max-w-4xl font-work-sans break-all prose-invert prose-p:my-2 prose-table:bg-transparent prose-th:text-white prose-td:text-white prose-tr:border-white/20 prose-blockquote:text-white prose-blockquote:border-white/30 prose-strong:text-white prose-a:text-blue-400 prose-code:bg-[#181c2a] prose-code:text-white prose-pre:bg-[#181c2a] prose-pre:text-white prose-headings:text-white prose-li:text-white prose-ul:text-white prose-ol:text-white prose-hr:border-white/20;
     }
 }
 
