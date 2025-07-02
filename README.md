@@ -17,6 +17,7 @@ Un sitio web donde cualquier persona puede registrarse y compartir su idea de st
 - **Animaciones modernas** con Framer Motion.
 - **Componentes UI** de shadcn y estilos con Tailwind CSS.
 - **Seguridad**: todas las interacciones que traen información usan server actions, por lo que el usuario nunca accede a datos sensibles.
+- **Monitoreo de errores**: integración con Sentry para detectar y reportar errores en producción.
 - **SEO avanzado**: metadata dinámica para posts y perfiles.
 
 ---
@@ -30,6 +31,7 @@ Un sitio web donde cualquier persona puede registrarse y compartir su idea de st
 - **MDeditor** (editor Markdown)
 - **Sanity** (CMS y base de datos)
 - **NextAuth** (autenticación con GitHub)
+- **Sentry** (monitoreo y reporte de errores)
 - **Server Actions** (para máxima seguridad)
 
 ---
