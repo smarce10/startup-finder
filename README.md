@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Startup Finder 🚀
 
-## Getting Started
+Un sitio web donde cualquier persona puede registrarse y compartir su idea de startup. Descubrí, filtrá y explorá startups creadas por la comunidad, accedé a perfiles de usuarios y gestioná tus propios proyectos de manera sencilla y segura.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Características principales
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Registro y login con GitHub** gracias a NextAuth.
+- **Creación, edición y borrado de startups**: cada usuario puede gestionar sus propios posts.
+- **Exploración y filtrado**: buscá startups por nombre, categoría o autor.
+- **Perfiles públicos**: accedé al perfil de cualquier usuario y mirá todas sus startups.
+- **Contador de visitas** en cada post.
+- **Redacción en Markdown** con MDeditor.
+- **CMS integrado**: gestioná startups también desde Sanity Studio.
+- **Partial Pre Rendering y SSG**: algunas vistas se prerenderizan para máxima performance.
+- **Animaciones modernas** con Framer Motion.
+- **Componentes UI** de shadcn y estilos con Tailwind CSS.
+- **Seguridad**: todas las interacciones que traen información usan server actions, por lo que el usuario nunca accede a datos sensibles.
+- **SEO avanzado**: metadata dinámica para posts y perfiles.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Stack tecnológico
 
-## Learn More
+- **Next.js** (App Router, SSG, Partial Pre Rendering)
+- **Tailwind CSS** (estilos)
+- **Framer Motion** (animaciones)
+- **shadcn/ui** (componentes UI)
+- **MDeditor** (editor Markdown)
+- **Sanity** (CMS y base de datos)
+- **NextAuth** (autenticación con GitHub)
+- **Server Actions** (para máxima seguridad)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Instalación y uso local
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Cloná el repositorio:**
+   ```bash
+   git clone https://github.com/tuusuario/startup-finder.git
+   cd startup-finder
+   ```
 
-## Deploy on Vercel
+2. **Instalá las dependencias:**
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Configurá las variables de entorno:**  
+   Creá un archivo `.env.local` en la raíz del proyecto y agregá tus claves de Sanity, NextAuth, etc. Por ejemplo:
+   ```
+    AUTH_SECRET=...
+    AUTH_GITHUB_ID=...
+    AUTH_GITHUB_SECRET=...
+    NEXT_PUBLIC_SANITY_PROJECT_ID=...
+    NEXT_PUBLIC_SANITY_DATASET=...
+    NEXT_PUBLIC_SANITY_API_VERSION=...
+    SANITY_WRITE_TOKEN=...
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Levantá el proyecto:**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 👤 Autor
+
+- **Marcelo Gabriel Sanchez**  
+  [LinkedIn](https://www.linkedin.com/in/marcelo-gabriel-sanchez-374241357/)
