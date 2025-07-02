@@ -48,9 +48,13 @@ const workSans = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "YC Directory",
-  description: "Pitch, Vote and Grow",
-};
+  metadataBase: new URL("http://localhost:3000"),
+  title:{
+    template: "%s | Ameri Startups",
+    default: "Ameri Startups"
+  },
+  description: "Discover, pitch, and vote for innovative startups. Join the entrepreneurial journey with Ameri Startups.",
+}
 
 export default function RootLayout({
   children,

@@ -9,8 +9,6 @@ import { MotionH1 } from "@/components/motionComponents/MotionH1"
 import { MotionP } from "@/components/motionComponents/MotionP"
 import { MotionDiv } from "@/components/motionComponents/MotionDiv"
 
-
-// no tiene sentido que los searchParams sean un promise
 export default async function Home({ searchParams }: 
   { searchParams: Promise<{ query?: string }> }) {
   
