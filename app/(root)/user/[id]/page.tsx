@@ -2,12 +2,40 @@ import { auth } from "@/auth";
 import { StartupCardSkeleton } from "@/components/StartupCard";
 import UserStartups from "@/components/UserStartups";
 import { client } from "@/sanity/lib/client";
-import { getAuthorById } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { Metadata, ResolvingMetadata } from "next";
+import { getAuthorById } from "@/sanity/lib/queries";
 
 export const experimental_ppr = true;
+
+export async function generateMetadata(
+    {params} : {params: Promise<{id: string}>},
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const id = (await params).id;
+    const user = await client.fetch(getAuthorById, { id });
+
+    return {
+        title: `${user.name} Startups`,
+        description: `Explore startups by ${user.name}. Discover innovative ideas and entrepreneurial journeys.`,
+        openGraph: {
+            title: `${user.name} Startups`,
+            description: `Explore startups by ${user.name}. Discover innovative ideas and entrepreneurial journeys.`,
+            url: `/user/${id}`,
+            type: "profile",
+            images: [
+                {
+                    url: user.image,
+                    width: 1200,
+                    height: 630,
+                },
+            ],
+        },
+        keywords: ["startup", "emprendimiento", user.name, user.username],
+    };
+}
 
 const Page = async({ params } : { params: Promise<{id: string}>}) => {
 

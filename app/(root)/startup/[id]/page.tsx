@@ -10,9 +10,41 @@ import { Suspense } from "react";
 import View from "@/components/View";
 import StartupCard, { StartupCardType } from "@/components/StartupCard";
 import { Calendar } from "lucide-react";
+import { Metadata, ResolvingMetadata } from "next";
 const md = markdownit();
 
 export const experimental_ppr = true;
+
+export async function generateMetadata(
+    {params} : {params: Promise<{id: string}>},
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const id = (await params).id;
+
+    console.log("Generating metadata for post with ID:", id);
+    const post = await client.fetch(getPostById, { id });
+
+    if (!post) return notFound();
+
+    return {
+        title: post.title,
+        description: post.description,
+        openGraph: {
+            title: post.title,
+            description: post.description,
+            url: `/startup/${id}`,
+            type: "article",
+            images: [
+                {
+                    url: post.image,
+                    width: 1200,
+                    height: 630,
+                },
+            ],
+        },
+        keywords: ["startup", "emprendimiento", post.category]
+    };
+}
 
 const Page = async ({params} : {params: Promise<{id: string}>}) => {
     const id = (await params).id;
